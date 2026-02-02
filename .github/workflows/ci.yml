@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   pull_request:
   push:
     branches: [ "main" ]
@@ -24,8 +25,10 @@ jobs:
           filters: |
             java:
               - 'services/java-api/**'
+              - '.github/workflows/**'
             node:
               - 'services/node-api/**'
+              - '.github/workflows/**'
 
   java-ci:
     needs: changes
